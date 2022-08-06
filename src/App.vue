@@ -1,26 +1,57 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import { Stack } from '@chriscarter90/vue-stack'
+  import LayoutDefault from './layouts/LayoutDefault.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+
+    components: {
+      Stack,
+      LayoutDefault,
+    },
+
+    data() {
+      return {
+        string: null
+      }
+    },
+
+    methods: {
+      boop() {
+        console.log('boop', this.string)
+        this.resetString()
+      },
+
+      resetString() {
+        this.string = null
+      }
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<template>
+  <LayoutDefault class="container">
+    <Stack>
+      <h1>Spotify</h1>
+      <div>
+        <input
+          v-model="string"
+          type="text"
+        />
+        <button @click="boop">
+          Click me...
+        </button>
+      </div>
+    </Stack>
+  </LayoutDefault>
+</template>
+
+<style lang="scss" scoped>
+.container {
+  background-color: #fff;
+  display: flex;
+  margin: 0 auto;
+  padding: 1rem;
+  width: min(1024px, 100% - 2rem);
 }
 </style>
