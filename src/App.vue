@@ -1,12 +1,12 @@
 <script>
-  import { Stack } from '@chriscarter90/vue-stack'
+  import { CrystalStack } from '@chriscarter90/vue-component-library'
   import LayoutDefault from './layouts/LayoutDefault.vue'
 
   export default {
     name: 'App',
 
     components: {
-      Stack,
+      CrystalStack,
       LayoutDefault,
     },
 
@@ -31,7 +31,7 @@
 
 <template>
   <LayoutDefault class="container">
-    <Stack>
+    <CrystalStack>
       <h1>Spotify</h1>
       <div>
         <input
@@ -42,7 +42,7 @@
           Click me...
         </button>
       </div>
-    </Stack>
+    </CrystalStack>
   </LayoutDefault>
 </template>
 
